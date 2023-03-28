@@ -1,0 +1,184 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Neptune"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF NEPTUNE_VP Viewpoint {
+    position 0 0 125
+    description "Neptune"
+}
+
+DEF NEPTUNE_INTOSUN_VP Viewpoint {
+    position 25 0 -125
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Neptune"
+}
+
+DEF NEPTUNE_TIMER TimeSensor {
+    cycleInterval 1.3
+    loop TRUE
+}
+
+DEF TRITON_TIMER TimeSensor {
+    cycleInterval 4
+    loop TRUE
+}
+
+DEF PROT_TIMER TimeSensor {
+    cycleInterval 3.5
+    loop TRUE
+}
+
+DEF NER_TIMER TimeSensor {
+    cycleInterval 3.25
+    loop TRUE
+}
+
+DEF NEPTUNE_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# keyValues are backward as Triton orbits opposite to Neptune rotation
+DEF TRITON_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 6.28, 
+               0 1 0 4.71,
+               0 1 0 3.14,
+               0 1 0 1.57,
+               0 1 0 0 ]
+}
+
+DEF PROT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF NER_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Moon PROTO
+PROTO Moon [
+    field SFColor MoonColor 0 0 0
+    field SFFloat MoonSize 1.0
+    field SFVec3f MoonLocation 1.0 1.0 1.0
+]
+{
+Transform {
+    translation IS MoonLocation
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor IS MoonColor
+                    emissiveColor IS MoonColor
+                }
+            }
+            geometry Sphere {
+                radius IS MoonSize
+            }
+        }
+    ]
+}
+}
+
+# Neptune
+Transform {
+    rotation 1 0 0 -0.5
+    translation 0 0 0
+    children [
+        DEF NEPTUNE_TGT Transform {
+            children [
+                Shape {
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "https://vinsworldcom.github.io/VRML-Universe/nep_map.jpg"
+                        }
+                    }
+                    geometry Sphere {
+                        radius 15.5
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Triton
+Transform {
+    children [
+        DEF TRITON_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation -30 4 20
+                    MoonColor 1 0.5 0.25
+                    MoonSize 0.7
+                }
+            ]
+        }
+    ]
+}
+
+# Proteus
+Transform {
+    children [
+        DEF PROT_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 26 -3 25
+                    MoonColor 0.2 0.2 0.2
+                    MoonSize 0.5
+                }
+            ]
+        }
+    ]
+}
+
+# Nereid
+Transform {
+    # Nereid has a hugely irregular orbit
+    translation 15 0 0
+    children [
+        DEF NER_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 35 0 -40
+                    MoonColor 0.2 0.2 0.2
+                    MoonSize 0.45
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE NEPTUNE_TIMER.fraction_changed TO NEPTUNE_INT.set_fraction
+ROUTE NEPTUNE_INT.value_changed TO NEPTUNE_TGT.set_rotation
+
+ROUTE TRITON_TIMER.fraction_changed TO TRITON_INT.set_fraction
+ROUTE TRITON_INT.value_changed TO TRITON_TGT.set_rotation
+
+ROUTE PROT_TIMER.fraction_changed TO PROT_INT.set_fraction
+ROUTE PROT_INT.value_changed TO PROT_TGT.set_rotation
+
+ROUTE NER_TIMER.fraction_changed TO NER_INT.set_fraction
+ROUTE NER_INT.value_changed TO NER_TGT.set_rotation
