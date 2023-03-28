@@ -1,0 +1,325 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+   title "VR Washington DC"
+   info ["Copyright (C) VinsWorld.  All Rights Reserved."
+         "Created by Michael Vincent."]
+}
+
+Background {
+    skyColor [
+        0.56 0.64 0.71
+        0.67 0.76 0.85
+        0.80 0.91 1.00
+        0.96 1.00 1.00
+    ]
+    skyAngle [ 1.571 1.658 1.745 ]
+}
+
+PointLight {
+    on TRUE
+    location 166.81 667.25 166.81
+    radius 1334.50
+    intensity 1.0
+    ambientIntensity 1.0
+    color 1.0, 1.0, 1.0
+    attenuation 1.0 0.0 0.0
+}
+
+#Background {
+#   backUrl           ["images/cloudbac.jpg"]
+#   bottomUrl         ["images/cloudbac.jpg"]
+#   frontUrl          ["images/cloudbac.jpg"]
+#   leftUrl           ["images/cloudbac.jpg"]
+#   rightUrl          ["images/cloudbac.jpg"]
+#   topUrl            ["images/cloudbac.jpg"]
+#}
+
+DEF Entry Viewpoint {
+    position    0 100 575
+    orientation 1 0 0  -0.2
+    description "Entry"
+}
+DEF Capitol Viewpoint {
+    position    410 2 70
+    orientation 0 1 0  1.571
+    description "Capitol Building"
+}
+DEF Jefferson_Memorial Viewpoint {
+    position    -60 2 200
+    orientation 0 1 0  3.141
+    description "Jefferson Memorial"
+}
+DEF Lincoln_Memorial Viewpoint {
+    position    -240 2.1 75
+    orientation 0 1 0  1.571
+    description "Lincoln Memorial"
+}
+DEF Vietnam_Memorial Viewpoint {
+    position    -227 1 45
+    orientation 0 0 0  0
+    description "Vietnam Memorial"
+}
+DEF Washington_Monument Viewpoint {
+    position    -165 2 75
+    orientation 0 1 0  -1.571
+    description "Washington Monument"
+}
+DEF White_House Viewpoint {
+    position    -80 2 -140
+    orientation 0 1 0  3.141
+    description "White House"
+}
+NavigationInfo {
+    avatarSize 0
+    headlight TRUE
+}
+Collision {
+    collide FALSE
+    children [
+        Group {
+            children [
+
+
+#      DirectionalLight {
+#         ambientIntensity 500
+#         direction 0 1 0
+#      }
+
+#       SpotLight {
+#           intensity   7
+#           color   1 1 1
+#           location    0 300 0
+#           direction   0 -1 0
+#       },
+
+                Transform {
+                    translation 0 -2 0
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0 1 0
+                                    emissiveColor   0 1 0
+                                }
+                            }
+                            geometry Box {
+                                size    800 4 500
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation 131.5 0.01 -17.5
+                    children [
+                        Transform {
+                            rotation    0 1 0  1.242
+                            children [
+                                Shape {
+                                    appearance Appearance {
+                                        material Material {
+                                            diffuseColor    0.7 0.7 0.7
+                                        }
+                                    }
+                                    geometry Box {
+                                        size    4 0.01 356
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                Transform {
+                    translation 60 0.01 20
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    680 0.01 4
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation 200 0.01 120
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    400 0.01 4
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation 0 0.01 85
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    4 0.01 130
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation -37 0.01 -52.5
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    4 0.01 145
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation -125 0.01 -52.5
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    4 0.01 145
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation -81 0.01 -125
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0.7 0.7 0.7
+                                }
+                            }
+                            geometry Box {
+                                size    92 0.01 4
+                            }
+                        }
+                    ]
+                },
+                Group {
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor    0 0 1
+                                }
+                            }
+                            geometry IndexedFaceSet {
+                                coord Coordinate {
+                                    point [ -32 0.02 200,
+                                            -95 0.02 120,
+                                            -155 0.02 120,
+                                            -200 0.02 175,
+                                            -125 0.02 245
+                                    ]
+                                }
+                                solid   FALSE
+                                creaseAngle 0.5
+                                coordIndex  [ 0, 1, 2, 3, 4, -1 ]
+                            }
+                        }
+                    ]
+                },
+                Transform {
+                    translation -200 0 75
+                    children [
+                        Inline {
+                            url "refpool.wrl"
+                        }
+                    ]
+                },
+                Transform {
+                    translation -50 0 75
+                    children [
+                        Inline {
+                            url "washmon.wrl"
+                        }
+                    ]
+                },
+                Transform {
+                    translation -225 0 35
+                    children [
+                        Inline {
+                            url "vietmem.wrl"
+                        }
+                    ]
+                },
+                Transform {
+                    translation -280 0 75
+                    children [
+                        Transform {
+                            rotation    0 1 0  1.571
+                            children [
+                                Inline {
+                                    url "lincoln.wrl"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                Transform {
+                    translation 370 0 70
+                    children [
+                        Transform {
+                            rotation    0 1 0  1.571
+                            children [
+                                Inline {
+                                    url "capitol.wrl"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                Transform {
+                    translation -80 0 -100
+                    children [
+                        Transform {
+                            rotation    0 1 0  3.141
+                            children [
+                                Inline {
+                                    url "whitehus.wrl"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                Transform {
+                    translation -60 0 225
+                    children [
+                        Transform {
+                            rotation    0 1 0  3.141
+                            children [
+                                Inline {
+                                    url "jeffersn.wrl"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
