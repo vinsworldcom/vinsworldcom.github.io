@@ -1,0 +1,894 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Solar System"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+Background {
+    backUrl   ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    bottomUrl ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    frontUrl  ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    leftUrl   ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    rightUrl  ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    topUrl    ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+}
+
+DEF WHERE1_VP Viewpoint {
+    position 39000 10000 0
+    orientation -0.19 0.96 0.19 1.61
+    description "FIXED - Watching in from behind Pluto"
+}
+
+DEF SUN_VP Viewpoint {
+    position 0 0 1070
+    description "Sun"
+}
+
+NavigationInfo {
+    avatarSize 0
+    type ["FLY", "EXAMINE"]
+    headlight FALSE
+}
+
+DEF SUN_TIMER TimeSensor {
+    cycleInterval 60
+    loop TRUE
+}
+
+DEF MERCURY_ORBIT_TIMER TimeSensor {
+    cycleInterval 2.11
+    loop TRUE
+}
+
+DEF VENUS_ORBIT_TIMER TimeSensor {
+    cycleInterval 5.39
+    loop TRUE
+}
+
+DEF EARTH_ORBIT_TIMER TimeSensor {
+    cycleInterval 8.76
+    loop TRUE
+}
+
+DEF MARS_ORBIT_TIMER TimeSensor {
+    cycleInterval 16.47
+    loop TRUE
+}
+
+DEF JUPITER_ORBIT_TIMER TimeSensor {
+    cycleInterval 103.89
+    loop TRUE
+}
+
+DEF SATURN_ORBIT_TIMER TimeSensor {
+    cycleInterval 258.06
+    loop TRUE
+}
+
+DEF URANUS_ORBIT_TIMER TimeSensor {
+    cycleInterval 736.01
+    loop TRUE
+}
+
+DEF NEPTUNE_ORBIT_TIMER TimeSensor {
+    cycleInterval 1443.56
+    loop TRUE
+}
+
+DEF PLUTO_ORBIT_TIMER TimeSensor {
+    cycleInterval 2172.48
+    loop TRUE
+}
+
+# Ring PROTO
+PROTO Ring [
+     field SFColor RingColor 0 0 1
+]
+{
+Shape {
+    appearance Appearance {
+        material Material {
+            emissiveColor IS RingColor
+            transparency 0.01
+        }
+    }
+    geometry IndexedLineSet {
+        coord Coordinate {
+            point [ 5 0 0, 4.875 0 -0.99, 4.75 0 -1.65, 4.5 0 -2.3,
+                    4 0 -3, 3 0 -4, 2.3 0 -4.5, 1.65 0 -4.75,
+                    0.99 0 -4.875, 0 0 -5,
+
+                    -0.99 0 -4.875, -1.65 0 -4.75, -2.3 0 -4.5,
+                    -3 0 -4, -4 0 -3, -4.5 0 -2.3, -4.75 0 -1.65,
+                    -4.875 0 -0.99, -5 0 0,
+
+                    -4.875 0 0.99, -4.75 0 1.65, -4.5 0 2.3, -4 0 3,
+                    -3 0 4, -2.3 0 4.5, -1.65 0 4.75, -0.99 0 4.875,
+                    0 0 5,
+
+                    0.99 0 4.875, 1.65 0 4.75, 2.3 0 4.5, 3 0 4, 4 0 3,
+                    4.5 0 2.3, 4.75 0 1.65, 4.875 0 0.99
+            ]
+        }
+        coordIndex [ 0 1 -1
+                     1 2 -1
+                     2 3 -1
+                     3 4 -1
+                     4 5 -1
+                     5 6 -1
+                     6 7 -1
+                     7 8 -1
+                     8 9 -1
+                     9 10 -1
+                     10 11 -1
+                     11 12 -1
+                     12 13 -1
+                     13 14 -1
+                     14 15 -1
+                     15 16 -1
+                     16 17 -1
+                     17 18 -1
+                     18 19 -1
+                     19 20 -1
+                     20 21 -1
+                     21 22 -1
+                     22 23 -1
+                     23 24 -1
+                     24 25 -1
+                     25 26 -1
+                     26 27 -1
+                     27 28 -1
+                     28 29 -1
+                     29 30 -1
+                     30 31 -1
+                     31 32 -1
+                     32 33 -1
+                     33 34 -1
+                     34 35 -1
+                     35 0 -1
+        ]
+    }
+}
+}
+
+# Orbit Lines
+DEF ORBIT_LINES_SWITCH Switch {
+    whichChoice -1
+    choice [
+
+        DEF ORBIT_LINES Transform {
+            children [
+
+                # Mercury
+                Transform {
+                    scale 158.6 1 158.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Venus
+                Transform {
+                    scale 221.2 1 221.2
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Earth
+                Transform {
+                    scale 272.6 1 272.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Mars
+                Transform {
+                    scale 370 1 370
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Jupiter
+                Transform {
+                    scale 1054.6 1 1054.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Saturn
+                Transform {
+                    scale 1860.6 1 1860.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Uranus
+                Transform {
+                    scale 3660.6 1 3660.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Neptune
+                Transform {
+                    scale 6044.6 1 6044.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+
+                # Pluto
+                Transform {
+                    translation 0 0 7000
+                    rotation 1 0 0 0.15
+                    scale 7436.6 1 7436.6
+                    children [
+                        Ring {
+                            RingColor 0.1 0.1 0.1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# Asteroid Belt Torus
+PROTO AsteroidBelt [
+    field SFColor BeltColor 0.5 0.5 0.5
+    field SFFloat BeltTrans 0.5
+]
+{
+Shape {
+  appearance Appearance {
+    material Material {
+      emissiveColor IS BeltColor
+      transparency IS BeltTrans
+    }
+  }
+  geometry Extrusion {
+    beginCap FALSE
+    endCap FALSE
+    convex FALSE
+    creaseAngle 1.57
+    crossSection [ 1.00 0.00 0.92 -0.38 0.71 -0.71 0.38 -0.92
+
+                   0.00 -1.00 -0.38 -0.92 -0.71 -0.71 -0.92 -0.38
+
+                   -1.00 0.00 -0.92 0.38 -0.71 0.71 -0.38 0.92
+
+                   0.00 1.00 0.38 0.92 0.71 0.71 0.92 0.38 1.00 0.00
+    ]
+    spine [ 5 0 0, 4.875 0 -0.99, 4.75 0 -1.65, 4.5 0 -2.3,
+            4 0 -3, 3 0 -4, 2.3 0 -4.5, 1.65 0 -4.75,
+            0.99 0 -4.875, 0 0 -5,
+
+            -0.99 0 -4.875, -1.65 0 -4.75, -2.3 0 -4.5,
+            -3 0 -4, -4 0 -3, -4.5 0 -2.3, -4.75 0 -1.65,
+            -4.875 0 -0.99, -5 0 0,
+
+            -4.875 0 0.99, -4.75 0 1.65, -4.5 0 2.3, -4 0 3,
+            -3 0 4, -2.3 0 4.5, -1.65 0 4.75, -0.99 0 4.875,
+            0 0 5,
+
+            0.99 0 4.875, 1.65 0 4.75, 2.3 0 4.5, 3 0 4, 4 0 3,
+            4.5 0 2.3, 4.75 0 1.65, 4.875 0 0.99, 5 0 0
+    ]
+  }
+}
+}
+
+#SUN
+Transform {
+    translation 0 0 0
+    children [
+
+        DEF SUN_INT OrientationInterpolator {
+            key [0, 0.25, 0.5, 0.75, 1]
+            keyValue [ 0 1 0 0,
+                       0 1 0 1.57,
+                       0 1 0 3.14,
+                       0 1 0 4.71,
+                       0 1 0 6.28
+            ]
+        }
+
+        DEF SUN_TGT Transform {
+            children [
+                Anchor {
+                    url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=sun"
+                    description "Sun"
+                    parameter ["target=_blank"]
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    diffuseColor 1 1 0
+                                    emissiveColor 1 1 0
+                                }
+                            }
+                            geometry Sphere {
+                                radius 432.5
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# Mercury
+DEF MERCURY_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF MERCURY_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=mercury"
+            description "Mercury"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 200 ]
+#                    center 0 0 -793
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -793
+                            children [
+                                Inline {
+                                    url "mercury.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                       Transform {
+#                           translation 0 0 -793
+#                           children [
+#                               Shape {
+#                                   appearance Appearance {
+#                                       material Material {
+#                                           emissiveColor 0.5 0 0
+#                                       }
+#                                   }
+#                                   geometry Sphere {
+#                                       radius 1.52
+#                                   }
+#                               }
+#                           ]
+#                       }
+#                   ]
+#                }
+            ]
+        }
+    ]
+}
+
+# Venus
+DEF VENUS_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF VENUS_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=venus"
+            description "Venus"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 1000 ]
+#                    center 0 0 -1106
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -1106
+                            children [
+                                Inline {
+                                    url "venus.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                        Transform {
+#                            translation 0 0 -1106
+#                            children [
+#                                Shape {
+#                                    appearance Appearance {
+#                                        material Material {
+#                                            emissiveColor 1 0.5 0.25
+#                                        }
+#                                    }
+#                                    geometry Sphere {
+#                                        radius 3.85
+#                                    }
+#                                }
+#                            ]
+#                        }
+#                    ]
+#                }
+            ]
+        }
+    ]
+}
+
+# Earth
+DEF EARTH_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF EARTH_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=earth"
+            description "Earth"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 1800 ]
+#                    center 0 0 -1363
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -1363
+                            children [
+                                Inline {
+                                    url "earth.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                        Transform {
+#                            translation 0 0 -1363
+#                            children [
+#                                Shape {
+#                                    appearance Appearance {
+#                                        material Material {
+#                                            emissiveColor 0.5 1 1
+#                                        }
+#                                    }
+#                                    geometry Sphere {
+#                                        radius 3.96
+#                                    }
+#                                }
+#                            ]
+#                        }
+#                    ]
+#                }
+            ]
+        }
+    ]
+}
+
+# Mars
+DEF MARS_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF MARS_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=mars"
+            description "Mars"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 1000 ]
+#                    center 0 0 -1850
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -1850
+                            children [
+                                Inline {
+                                    url "mars.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                        Transform {
+#                            translation 0 0 -1850
+#                            children [
+#                                Shape {
+#                                    appearance Appearance {
+#                                        material Material {
+#                                            emissiveColor 0.5 0.25 0
+#                                        }
+#                                    }
+#                                    geometry Sphere {
+#                                        radius 2.11
+#                                    }
+#                                }
+#                            ]
+#                        }
+#                    ]
+#                }
+            ]
+        }
+    ]
+}
+
+DEF AB_VP Viewpoint {
+    position 0 0 -4300
+    orientation 0 1 0 3.14
+    description "Asteroid Belt"
+}
+
+# Asteroid Belt
+Collision {
+    collide FALSE
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=asteroids"
+            description "Asteroid Belt"
+            parameter ["target=_blank"]
+            children [
+                Transform {
+                    scale 680 20 680
+                    children [
+                        AsteroidBelt {
+                            BeltColor 0.35 0.35 0.35
+                            BeltTrans 0.90
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# Jupiter
+DEF JUPITER_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF JUPITER_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=jupiter"
+            description "Jupiter"
+            parameter ["target=_blank"]
+            children [
+                Transform {
+                    translation 0 0 -5273
+                    children [
+                        Inline {
+                            url "jupiter.wrl"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# Saturn
+DEF SATURN_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF SATURN_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=saturn"
+            description "Saturn"
+            parameter ["target=_blank"]
+            children [
+                Transform {
+                    translation 0 0 -9303
+                    children [
+                        Inline {
+                            url "saturn.wrl"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# Uranus
+DEF URANUS_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF URANUS_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=uranus"
+            description "Uranus"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 1500 ]
+#                    center 0 0 -18303
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -18303
+                            children [
+                                Inline {
+                                    url "uranus.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                        Transform {
+#                            translation 0 0 -18303
+#                            children [
+#                                Shape {
+#                                    appearance Appearance {
+#                                        material Material {
+#                                            emissiveColor 0 1 1
+#                                        }
+#                                    }
+#                                    geometry Sphere {
+#                                        radius 16
+#                                    }
+#                                }
+#                            ]
+#                        }
+#                    ]
+#                }
+            ]
+        }
+    ]
+}
+
+# Neptune
+DEF NEPTUNE_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF NEPTUNE_ORBIT_TGT Transform {
+    children [
+        Anchor {
+            url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=neptune"
+            description "Neptune"
+            parameter ["target=_blank"]
+            children [
+
+#                LOD {
+#                    range [ 1500 ]
+#                    center 0 0 -30223
+#                    level [
+
+                        # Close up
+                        Transform {
+                            translation 0 0 -30223
+                            children [
+                                Inline {
+                                    url "neptune.wrl"
+                                }
+                            ]
+                        }
+
+                        # Far away
+#                        Transform {
+#                            translation 0 0 -30223
+#                            children [
+#                                Shape {
+#                                    appearance Appearance {
+#                                        material Material {
+#                                            emissiveColor 0.5 0.5 1
+#                                        }
+#                                    }
+#                                    geometry Sphere {
+#                                        radius 15.5
+#                                    }
+#                                }
+#                            ]
+#                        }
+#                    ]
+#                }
+            ]
+        }
+    ]
+}
+
+# Pluto
+DEF PLUTO_ORBIT_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Pluto is offset so it is closer than Netptune for about 20 years
+# Also, its axis is inclined from the other planets
+Transform {
+    translation 0 0 7000
+    rotation 1 0 0 0.15
+    children[
+        DEF PLUTO_ORBIT_TGT Transform {
+            children [
+                Anchor {
+                    url "http://vinsworldcom.github.io/VRML-Universe/openurl?object=pluto"
+                    description "Pluto"
+                    parameter ["target=_blank"]
+                    children [
+
+#                        LOD {
+#                            range [ 500 ]
+#                            center 0 0 -37183
+#                            level [
+
+                                # Close up
+                                Transform {
+                                    translation 0 0 -37183
+                                    children [
+                                        Inline {
+                                            url "pluto.wrl"
+                                        }
+                                    ]
+                                }
+
+                                # Far away
+ #                               Transform {
+ #                                   translation 0 0 -37183
+ #                                   children [
+ #                                       Shape {
+ #                                           appearance Appearance {
+ #                                               material Material {
+ #                                                   emissiveColor 0.5 0.5 0.5
+ #                                               }
+ #                                           }
+ #                                           geometry Sphere {
+ #                                               radius 0.71
+ #                                           }
+ #                                       }
+ #                                   ]
+ #                               }
+ #                           ]
+ #                       }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+DEF WHERE2_VP Viewpoint {
+    position 20 100 -2200
+    orientation 0 1 0 3.14
+    description "FIXED - Watching in from behind Mars"
+}
+
+DEF ORBIT_LINES_SCRIPT Script {
+   eventIn SFBool input
+   eventOut SFInt32 output
+   url "javascript:
+      function input(value, time) {
+         if (value == 1) output = 0;
+         else output = -1;
+      }
+   "
+}
+
+ROUTE SUN_TIMER.fraction_changed TO SUN_INT.set_fraction
+ROUTE SUN_INT.value_changed TO SUN_TGT.set_rotation
+
+ROUTE MERCURY_ORBIT_TIMER.fraction_changed TO MERCURY_ORBIT_INT.set_fraction
+ROUTE MERCURY_ORBIT_INT.value_changed TO MERCURY_ORBIT_TGT.set_rotation
+
+ROUTE VENUS_ORBIT_TIMER.fraction_changed TO VENUS_ORBIT_INT.set_fraction
+ROUTE VENUS_ORBIT_INT.value_changed TO VENUS_ORBIT_TGT.set_rotation
+
+ROUTE EARTH_ORBIT_TIMER.fraction_changed TO EARTH_ORBIT_INT.set_fraction
+ROUTE EARTH_ORBIT_INT.value_changed TO EARTH_ORBIT_TGT.set_rotation
+
+ROUTE MARS_ORBIT_TIMER.fraction_changed TO MARS_ORBIT_INT.set_fraction
+ROUTE MARS_ORBIT_INT.value_changed TO MARS_ORBIT_TGT.set_rotation
+
+ROUTE JUPITER_ORBIT_TIMER.fraction_changed TO JUPITER_ORBIT_INT.set_fraction
+ROUTE JUPITER_ORBIT_INT.value_changed TO JUPITER_ORBIT_TGT.set_rotation
+
+ROUTE SATURN_ORBIT_TIMER.fraction_changed TO SATURN_ORBIT_INT.set_fraction
+ROUTE SATURN_ORBIT_INT.value_changed TO SATURN_ORBIT_TGT.set_rotation
+
+ROUTE URANUS_ORBIT_TIMER.fraction_changed TO URANUS_ORBIT_INT.set_fraction
+ROUTE URANUS_ORBIT_INT.value_changed TO URANUS_ORBIT_TGT.set_rotation
+
+ROUTE NEPTUNE_ORBIT_TIMER.fraction_changed TO NEPTUNE_ORBIT_INT.set_fraction
+ROUTE NEPTUNE_ORBIT_INT.value_changed TO NEPTUNE_ORBIT_TGT.set_rotation
+
+ROUTE PLUTO_ORBIT_TIMER.fraction_changed TO PLUTO_ORBIT_INT.set_fraction
+ROUTE PLUTO_ORBIT_INT.value_changed TO PLUTO_ORBIT_TGT.set_rotation
+
+ROUTE WHERE1_VP.isBound TO ORBIT_LINES_SCRIPT.input
+ROUTE ORBIT_LINES_SCRIPT.output TO ORBIT_LINES_SWITCH.whichChoice
+
+ROUTE WHERE2_VP.isBound TO ORBIT_LINES_SCRIPT.input
+ROUTE ORBIT_LINES_SCRIPT.output TO ORBIT_LINES_SWITCH.whichChoice

@@ -1,0 +1,682 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+   title "VR Washington DC - Lincoln Memorial"
+   info ["Copyright (C) VinsWorld.  All Rights Reserved."
+         "Created by Michael Vincent."]
+}
+
+Collision {
+    collide FALSE
+    children [
+	Group {
+	    children [
+		Transform {
+		    translation	0 4 -3
+		    children [
+			Shape {
+			    appearance
+				Appearance {
+				    material
+					DEF _v2%0 Material {
+					    diffuseColor	1 1 1
+					}
+				}
+			    geometry
+				Box {
+				    size	10 4 4
+				}
+			},
+			Transform {
+			    translation	0 -3 0
+			    children [
+				Shape {
+				    appearance
+					Appearance {
+					    material USE _v2%0
+					}
+				    geometry
+					Box {
+					    size	12 2 6
+					}
+				},
+				Transform {
+				    translation	0 3.5 0
+				    children [
+					Shape {
+					    appearance
+						Appearance {
+						    material USE _v2%0
+						}
+					    geometry
+						Box {
+						    size	12 1 6
+						}
+					},
+					Transform {
+					    translation	-3.5 -4 5
+					    children [
+						Shape {
+						    appearance
+							Appearance {
+							    material USE _v2%0
+							}
+						    geometry
+							Box {
+							    size	1 1 4
+							}
+						},
+						Transform {
+						    translation	7 0 0
+						    children [
+							Shape {
+							    appearance
+								Appearance {
+								    material USE _v2%0
+								}
+							    geometry
+								Box {
+								    size	1 1 4
+								}
+							},
+							Transform {
+							    translation	0 0.75 1.5
+							    children [
+								Shape {
+								    appearance
+									Appearance {
+									    material USE _v2%0
+									}
+								    geometry
+									Cylinder {
+									    radius	0.25
+									    height	0.5
+									}
+								},
+								Transform {
+								    translation	-7 0 0
+								    children [
+									Shape {
+									    appearance
+										Appearance {
+										    material USE _v2%0
+										}
+									    geometry
+										Cylinder {
+										    radius	0.25
+										    height	0.5
+										}
+									},
+									Transform {
+									    translation	3.5 1.75 -4.5
+									    children [
+										Shape {
+										    appearance
+											Appearance {
+											    material
+												Material {
+												    diffuseColor	0 0 0
+												}
+											}
+										    geometry
+											Box {
+											    size	3 2 0.01
+											}
+										}
+									    ]
+									}
+								    ]
+								}
+							    ]
+							}
+						    ]
+						}
+					    ]
+					}
+				    ]
+				}
+			    ]
+			}
+		    ]
+		},
+		Transform {
+		    translation	0 0.1 4
+		    children [
+			Shape {
+			    appearance
+				Appearance {
+				    material
+					DEF _DefMat Material {
+					}
+				}
+			    geometry
+				Box {
+				    size	6 0.2 0.2
+				}
+			},
+			Transform {
+			    translation	0 0.1 -0.2
+			    children [
+				Shape {
+				    appearance
+					Appearance {
+					    material USE _DefMat
+					}
+				    geometry
+					Box {
+					    size	6 0.4 0.2
+					}
+				},
+				Transform {
+				    translation	0 0.1 -0.2
+				    children [
+					Shape {
+					    appearance
+						Appearance {
+						    material USE _DefMat
+						}
+					    geometry
+						Box {
+						    size	6 0.6 0.2
+						}
+					},
+					Transform {
+					    translation	0 0.1 -0.2
+					    children [
+						Shape {
+						    appearance
+							Appearance {
+							    material USE _DefMat
+							}
+						    geometry
+							Box {
+							    size	6 0.8 0.2
+							}
+						},
+						Transform {
+						    translation	0 0.1 -0.2
+						    children [
+							Shape {
+							    appearance
+								Appearance {
+								    material USE _DefMat
+								}
+							    geometry
+								Box {
+								    size	6 1 0.2
+								}
+							},
+							Transform {
+							    translation	0 0 -1
+							    children [
+								Shape {
+								    appearance
+									Appearance {
+									    material USE _DefMat
+									}
+								    geometry
+									Box {
+									    size	6 1 2
+									}
+								},
+								Transform {
+								    translation	0 0.6 -0.1
+								    children [
+									Shape {
+									    appearance
+										Appearance {
+										    material USE _DefMat
+										}
+									    geometry
+										Box {
+										    size	6 0.2 0.2
+										}
+									},
+									Transform {
+									    translation	0 0.1 -0.2
+									    children [
+										Shape {
+										    appearance
+											Appearance {
+											    material USE _DefMat
+											}
+										    geometry
+											Box {
+											    size	6 0.4 0.2
+											}
+										},
+										Transform {
+										    translation	0 0.1 -0.2
+										    children [
+											Shape {
+											    appearance
+												Appearance {
+												    material USE _DefMat
+												}
+											    geometry
+												Box {
+												    size	6 0.6 0.2
+												}
+											},
+											Transform {
+											    translation	0 0.1 -0.2
+											    children [
+												Shape {
+												    appearance
+													Appearance {
+													    material USE _DefMat
+													}
+												    geometry
+													Box {
+													    size	6 0.8 0.2
+													}
+												},
+												Transform {
+												    translation	0 0.1 -0.2
+												    children [
+													Shape {
+													    appearance
+														Appearance {
+														    material USE _DefMat
+														}
+													    geometry
+														Box {
+														    size	6 1 0.2
+														}
+													},
+													Transform {
+													    translation	0 -0.5 -1
+													    children [
+														Shape {
+														    appearance
+															Appearance {
+															    material USE _DefMat
+															}
+														    geometry
+															Box {
+															    size	6 2 2
+															}
+														}
+													    ]
+													}
+												    ]
+												}
+											    ]
+											}
+										    ]
+										}
+									    ]
+									}
+								    ]
+								}
+							    ]
+							}
+						    ]
+						}
+					    ]
+					}
+				    ]
+				}
+			    ]
+			}
+		    ]
+		},
+		Transform {
+		    translation	-5.7 3 -0.3
+		    children [
+			Shape {
+			    appearance
+				Appearance {
+				    material
+					DEF _v2%1 Material {
+					    diffuseColor	1 1 1
+					}
+				}
+			    geometry
+				Cylinder {
+				    radius	0.2
+				    height	2
+				}
+			},
+			Transform {
+			    translation	0 0 -5.4
+			    children [
+				Shape {
+				    appearance
+					Appearance {
+					    material USE _v2%1
+					}
+				    geometry
+					Cylinder {
+					    radius	0.2
+					    height	2
+					}
+				},
+				Transform {
+				    translation	1.63 0 0
+				    children [
+					Shape {
+					    appearance
+						Appearance {
+						    material USE _v2%1
+						}
+					    geometry
+						Cylinder {
+						    radius	0.2
+						    height	2
+						}
+					},
+					Transform {
+					    translation	0 0 5.4
+					    children [
+						Shape {
+						    appearance
+							Appearance {
+							    material USE _v2%1
+							}
+						    geometry
+							Cylinder {
+							    radius	0.2
+							    height	2
+							}
+						},
+						Transform {
+						    translation	1.63 0 0
+						    children [
+							Shape {
+							    appearance
+								Appearance {
+								    material USE _v2%1
+								}
+							    geometry
+								Cylinder {
+								    radius	0.2
+								    height	2
+								}
+							},
+							Transform {
+							    translation	0 0 -5.4
+							    children [
+								Shape {
+								    appearance
+									Appearance {
+									    material USE _v2%1
+									}
+								    geometry
+									Cylinder {
+									    radius	0.2
+									    height	2
+									}
+								},
+								Transform {
+								    translation	1.63 0 0
+								    children [
+									Shape {
+									    appearance
+										Appearance {
+										    material USE _v2%1
+										}
+									    geometry
+										Cylinder {
+										    radius	0.2
+										    height	2
+										}
+									},
+									Transform {
+									    translation	0 0 5.4
+									    children [
+										Shape {
+										    appearance
+											Appearance {
+											    material USE _v2%1
+											}
+										    geometry
+											Cylinder {
+											    radius	0.2
+											    height	2
+											}
+										},
+										Transform {
+										    translation	1.62 0 0
+										    children [
+											Shape {
+											    appearance
+												Appearance {
+												    material USE _v2%1
+												}
+											    geometry
+												Cylinder {
+												    radius	0.2
+												    height	2
+												}
+											},
+											Transform {
+											    translation	0 0 -5.4
+											    children [
+												Shape {
+												    appearance
+													Appearance {
+													    material USE _v2%1
+													}
+												    geometry
+													Cylinder {
+													    radius	0.2
+													    height	2
+													}
+												},
+												Transform {
+												    translation	1.63 0 0
+												    children [
+													Shape {
+													    appearance
+														Appearance {
+														    material USE _v2%1
+														}
+													    geometry
+														Cylinder {
+														    radius	0.2
+														    height	2
+														}
+													},
+													Transform {
+													    translation	0 0 5.4
+													    children [
+														Shape {
+														    appearance
+															Appearance {
+															    material USE _v2%1
+															}
+														    geometry
+															Cylinder {
+															    radius	0.2
+															    height	2
+															}
+														},
+														Transform {
+														    translation	1.63 0 0
+														    children [
+															Shape {
+															    appearance
+																Appearance {
+																    material USE _v2%1
+																}
+															    geometry
+																Cylinder {
+																    radius	0.2
+																    height	2
+																}
+															},
+															Transform {
+															    translation	0 0 -5.4
+															    children [
+																Shape {
+																    appearance
+																	Appearance {
+																	    material USE _v2%1
+																	}
+																    geometry
+																	Cylinder {
+																	    radius	0.2
+																	    height	2
+																	}
+																},
+																Transform {
+																    translation	1.63 0 0
+																    children [
+																	Shape {
+																	    appearance
+																		Appearance {
+																		    material USE _v2%1
+																		}
+																	    geometry
+																		Cylinder {
+																		    radius	0.2
+																		    height	2
+																		}
+																	},
+																	Transform {
+																	    translation	0 0 5.4
+																	    children [
+																		Shape {
+																		    appearance
+																			Appearance {
+																			    material USE _v2%1
+																			}
+																		    geometry
+																			Cylinder {
+																			    radius	0.2
+																			    height	2
+																			}
+																		},
+																		Transform {
+																		    translation	0 0 -1.35
+																		    children [
+																			Shape {
+																			    appearance
+																				Appearance {
+																				    material USE _v2%1
+																				}
+																			    geometry
+																				Cylinder {
+																				    radius	0.2
+																				    height	2
+																				}
+																			},
+																			Transform {
+																			    translation	-11.4 0 0
+																			    children [
+																				Shape {
+																				    appearance
+																					Appearance {
+																					    material USE _v2%1
+																					}
+																				    geometry
+																					Cylinder {
+																					    radius	0.2
+																					    height	2
+																					}
+																				},
+																				Transform {
+																				    translation	0 0 -1.35
+																				    children [
+																					Shape {
+																					    appearance
+																						Appearance {
+																						    material USE _v2%1
+																						}
+																					    geometry
+																						Cylinder {
+																						    radius	0.2
+																						    height	2
+																						}
+																					},
+																					Transform {
+																					    translation	11.4 0 0
+																					    children [
+																						Shape {
+																						    appearance
+																							Appearance {
+																							    material USE _v2%1
+																							}
+																						    geometry
+																							Cylinder {
+																							    radius	0.2
+																							    height	2
+																							}
+																						},
+																						Transform {
+																						    translation	0 0 -1.35
+																						    children [
+																							Shape {
+																							    appearance
+																								Appearance {
+																								    material USE _v2%1
+																								}
+																							    geometry
+																								Cylinder {
+																								    radius	0.2
+																								    height	2
+																								}
+																							},
+																							Transform {
+																							    translation	-11.4 0 0
+																							    children [
+																								Shape {
+																								    appearance
+																									Appearance {
+																									    material USE _v2%1
+																									}
+																								    geometry
+																									Cylinder {
+																									    radius	0.2
+																									    height	2
+																									}
+																								}
+																							    ]
+																							}
+																						    ]
+																						}
+																					    ]
+																					}
+																				    ]
+																				}
+																			    ]
+																			}
+																		    ]
+																		}
+																	    ]
+																	}
+																    ]
+																}
+															    ]
+															}
+														    ]
+														}
+													    ]
+													}
+												    ]
+												}
+											    ]
+											}
+										    ]
+										}
+									    ]
+									}
+								    ]
+								}
+							    ]
+							}
+						    ]
+						}
+					    ]
+					}
+				    ]
+				}
+			    ]
+			}
+		    ]
+		}
+	    ]
+	}
+    ]
+}

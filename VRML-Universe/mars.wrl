@@ -1,0 +1,149 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Mars"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF MARS_VP Viewpoint {
+    position 0 0 35
+    description "Mars"
+}
+
+DEF MARS_INTOSUN_VP Viewpoint {
+    position 0 0 -35
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Mars"
+}
+
+DEF MARS_TIMER TimeSensor {
+    cycleInterval 2.45
+    loop TRUE
+}
+
+DEF PHOB_TIMER TimeSensor {
+    cycleInterval 0.9
+    loop TRUE
+}
+
+DEF DEIM_TIMER TimeSensor {
+    cycleInterval 3.03
+    loop TRUE
+}
+
+DEF MARS_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF PHOB_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF DEIM_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0,
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Moon PROTO
+PROTO Moon [
+    field SFColor MoonColor 0 0 0
+    field SFFloat MoonSize 1.0
+    field SFVec3f MoonLocation 1.0 1.0 1.0
+]
+{
+Transform {
+    translation IS MoonLocation
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor IS MoonColor
+                    emissiveColor IS MoonColor
+                }
+            }
+            geometry Sphere {
+                radius IS MoonSize
+            }
+        }
+    ]
+}
+}
+
+# Mars
+Transform {
+    rotation 1 0 0 -0.40
+    translation 0 0 0
+    children [
+        DEF MARS_TGT Transform {
+            children [
+                Shape {
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "https://vinsworldcom.github.io/VRML-Universe/mars_map.jpg"
+                        }
+                    }
+                    geometry Sphere {
+                        radius 2.11
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Phobos
+Transform {
+    children [
+        DEF PHOB_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 6.5 -0.3 0
+                    MoonColor 0.2 0.2 0.4
+                    MoonSize 0.05
+                }
+            ]
+        }
+    ]
+}
+
+# Deimos
+Transform {
+    children [
+        DEF DEIM_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 10 0.5 7
+                    MoonColor 0.5 0.5 0.4
+                    MoonSize 0.025
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE MARS_TIMER.fraction_changed TO MARS_INT.set_fraction
+ROUTE MARS_INT.value_changed TO MARS_TGT.set_rotation
+
+ROUTE PHOB_TIMER.fraction_changed TO PHOB_INT.set_fraction
+ROUTE PHOB_INT.value_changed TO PHOB_TGT.set_rotation
+
+ROUTE DEIM_TIMER.fraction_changed TO DEIM_INT.set_fraction
+ROUTE DEIM_INT.value_changed TO DEIM_TGT.set_rotation

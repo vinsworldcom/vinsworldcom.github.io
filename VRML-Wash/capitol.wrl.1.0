@@ -1,0 +1,246 @@
+#VRML V1.0 ascii
+Separator{
+	Info {
+		string "Created by Michael Vincent.  Copyright (C) VinsWorld.  All Rights Reserved."
+   	}
+	Separator { #Front Roof
+		Material { diffuseColor 1 1 1 }
+		Coordinate3 {
+			point [
+				-7 5 -6.75, -7 5 -8.35,
+				7 5 -8.35, 7 5 -6.75,
+				0 6 -6.75, 0 6 -8.35
+			]
+		}
+		IndexedFaceSet {
+			coordIndex [
+				0, 1, 2, 3, -1,
+				0, 1, 5, 4, -1,
+				5, 2, 3, 4, -1,
+				0, 4, 3, -1
+			]
+		}
+		    #Main Steps
+		Translation { translation 0 0 -3.1 }
+		Cube { width 10 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 10 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 1 depth 0.2 }
+
+		Translation { translation 0 0 -1 }
+		Cube { width 10 height 1 depth 2 }
+
+		Translation { translation 0 0.6 -0.1}
+		Cube { width 10 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 10 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 1 depth 0.2 }
+
+		Translation { translation 0 -0.5 -1 }
+		Cube { width 10 height 2 depth 2 }
+		    #Base
+		Translation { translation 0  0 -0.75 }
+		Cube { width 14 height 2 depth 1.6 }
+		    #Pillars
+		Translation { translation -6 2.6 0.25 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 4 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+	}
+	Separator { #Main Building
+		Material { diffuseColor 1 1 1 }
+		Translation { translation 0 3 -16.25 }
+		Cube { width 14 height 6 depth 15.5 }
+		Translation { translation 11 0 2.75 }
+		Cube { width 8 height 6 depth 10 }
+		Translation { translation 0 1 0 }
+		Sphere { radius 3 }
+		Translation { translation -22 -1 0 }
+		Cube { width 8 height 6 depth 10 }
+		Translation { translation 0 1 0 }
+		Sphere { radius 3 }
+	}
+	Separator { #Dome
+		Translation { translation 0 7.5 -14 }
+		Cylinder { radius 5 height 3 }
+		Translation { translation 0 2.5 0 }
+		Cylinder { radius 4 height 2 }
+		Translation { translation 0 0 0 }
+		Sphere { radius 4 }
+		Translation { translation 0 4 0 }
+		Cylinder { radius 1 height 1 }
+		Translation { translation 0 0.5 0 }
+		Sphere { radius 1 }
+	}
+	Separator { #Right Steps
+		Material { diffuseColor 1 1 1 }
+		Translation { translation 25 0.1 2.8 }
+		Material { diffuseColor 1 1 1 }
+		Coordinate3 {
+			point [
+				-7 5 -6.75, -7 5 -8.35,
+				7 5 -8.35, 7 5 -6.75,
+				0 6 -6.75, 0 6 -8.35
+			]
+		}
+		IndexedFaceSet {
+			coordIndex [
+				0, 1, 2, 3, -1,
+				0, 1, 5, 4, -1,
+				5, 2, 3, 4, -1,
+				0, 4, 3, -1
+			]
+		}
+		    #Steps
+		Translation { translation 0 0 -3.1 }
+		Cube { width 10 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 10 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 1 depth 0.2 }
+
+		Translation { translation 0 0 -1 }
+		Cube { width 10 height 1 depth 2 }
+
+		Translation { translation 0 0.6 -0.1}
+		Cube { width 8 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 8 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 1 depth 0.2 }
+
+		Translation { translation 0 -0.5 -1 }
+		Cube { width 10 height 2 depth 2 }
+		    #Base
+		Translation { translation 0  0 -0.75 }
+		Cube { width 14 height 2 depth 1.6 }
+		    #Pillars
+		Translation { translation -6 2.6 0.25 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 4 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+	}
+	Separator { #Senate (Right Building)
+		Material { diffuseColor 1 1 1 }
+		Translation { translation 25 3 -14.75 }
+		Cube { width 14 height 6 depth 18.5 }
+		    #Right Hall
+		Translation { translation -8.5 -0.5 0.75 }
+		Cube { width 3 height 5 depth 4 }
+	}
+	Separator { #Left Steps
+		Material { diffuseColor 1 1 1 }
+		Translation { translation -25 0.1 2.8 }
+		Material { diffuseColor 1 1 1 }
+		Coordinate3 {
+			point [
+				-7 5 -6.75, -7 5 -8.35,
+				7 5 -8.35, 7 5 -6.75,
+				0 6 -6.75, 0 6 -8.35
+			]
+		}
+		IndexedFaceSet {
+			coordIndex [
+				0, 1, 2, 3, -1,
+				0, 1, 5, 4, -1,
+				5, 2, 3, 4, -1,
+				0, 4, 3, -1
+			]
+		}
+		    #Steps
+		Translation { translation 0 0 -3.1 }
+		Cube { width 10 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 10 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 10 height 1 depth 0.2 }
+
+		Translation { translation 0 0 -1 }
+		Cube { width 10 height 1 depth 2 }
+
+		Translation { translation 0 0.6 -0.1}
+		Cube { width 8 height 0.2 depth 0.2 }
+		Translation { translation 0 0.1 -0.2}
+		Cube { width 8 height 0.4 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 0.6 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 0.8 depth 0.2 }
+		Translation { translation 0 0.1 -0.2 }
+		Cube { width 8 height 1 depth 0.2 }
+
+		Translation { translation 0 -0.5 -1 }
+		Cube { width 10 height 2 depth 2 }
+		    #Base
+		Translation { translation 0  0 -0.75 }
+		Cube { width 14 height 2 depth 1.6 }
+		    #Pillars
+		Translation { translation -6 2.6 0.25 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 4 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+		Translation { translation 2 0 0 }
+		Cylinder { radius 0.2 height 3.2 }
+	}
+	Separator { #House of Reps (Left Building)
+		Material { diffuseColor 1 1 1 }
+		Translation { translation -25 3 -14.75 }
+		Cube { width 14 height 6 depth 18.5 }
+		    #Left Hall
+		Translation { translation 8.5 -0.5 0.75 }
+		Cube { width 3 height 5 depth 4 }
+	}
+	Separator { #Doors
+		Material { diffuseColor 0 0 0 }
+		Translation { translation 0 2.5 -8.5 }
+		Cube { width 1.5 height 1.5 depth 0.01 }
+		Translation { translation 25 0 3 }
+		Cube { width 1.5 height 1.5 depth 0.01 }
+		Translation { translation -50 0 0 }
+		Cube { width 1.5 height 1.5 depth 0.01 }
+	}
+}
