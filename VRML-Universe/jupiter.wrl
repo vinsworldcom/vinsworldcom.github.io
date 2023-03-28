@@ -1,0 +1,215 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Jupiter"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF JUPITER_VP Viewpoint {
+    position 0 0 400
+    description "Jupiter"
+}
+
+DEF JUPITER_INTOSUN_VP Viewpoint {
+    position 75 0 -400
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Jupiter"
+}
+
+DEF JUPITER_TIMER TimeSensor {
+   cycleInterval 1
+   loop TRUE
+}
+
+DEF IO_TIMER TimeSensor {
+   cycleInterval 1
+   loop TRUE
+}
+
+DEF EUROPA_TIMER TimeSensor {
+   cycleInterval 2
+   loop TRUE
+}
+
+DEF GAN_TIMER TimeSensor {
+   cycleInterval 4
+   loop TRUE
+}
+
+DEF CAL_TIMER TimeSensor {
+   cycleInterval 3.25
+   loop TRUE
+}
+
+DEF JUPITER_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF IO_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF EUROPA_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF GAN_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF CAL_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Moon PROTO
+PROTO Moon [
+    field SFColor MoonColor 0 0 0
+    field SFFloat MoonSize 1.0
+    field SFVec3f MoonLocation 1.0 1.0 1.0
+]
+{
+Transform {
+    translation IS MoonLocation
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor IS MoonColor
+                    emissiveColor IS MoonColor
+                }
+            }
+            geometry Sphere {
+                radius IS MoonSize
+            }
+        }
+    ]
+}
+}
+
+# Jupiter
+Transform {
+    translation 0 0 0
+    rotation 0 1 0 0.05
+    children [
+        DEF JUPITER_TGT Transform {
+            children [
+                Shape {
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "https://vinsworldcom.github.io/VRML-Universe/jup_map.jpg"
+                        }
+                    }
+                    geometry Sphere {
+                        radius 44.35
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Io
+Transform {
+    children [
+        DEF IO_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 59 -10 0
+                    MoonColor 0.4 0 0.1
+                    MoonSize 1.08
+                }
+            ]
+        }
+    ]
+}
+
+# Europa
+Transform {
+    children [
+        DEF EUROPA_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 65 -9 0
+                    MoonColor 0.9 0.9 0.9
+                    MoonSize 1.08
+                }
+            ]
+        }
+    ]
+}
+
+# Ganymede
+Transform {
+    children [
+        DEF GAN_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 62 4 0
+                    MoonColor 0.1 2 1
+                    MoonSize 1.64
+                }
+            ]
+        }
+    ]
+}
+
+# Callisto
+Transform {
+    children [
+        DEF CAL_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation -67 -3 0
+                    MoonColor 0.8 0.1 0.3
+                    MoonSize 1.45
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE JUPITER_TIMER.fraction_changed TO JUPITER_INT.set_fraction
+ROUTE JUPITER_INT.value_changed TO JUPITER_TGT.set_rotation
+
+ROUTE IO_TIMER.fraction_changed TO IO_INT.set_fraction
+ROUTE IO_INT.value_changed TO IO_TGT.set_rotation
+
+ROUTE EUROPA_TIMER.fraction_changed TO EUROPA_INT.set_fraction
+ROUTE EUROPA_INT.value_changed TO EUROPA_TGT.set_rotation
+
+ROUTE GAN_TIMER.fraction_changed TO GAN_INT.set_fraction
+ROUTE GAN_INT.value_changed TO GAN_TGT.set_rotation
+
+ROUTE CAL_TIMER.fraction_changed TO CAL_INT.set_fraction
+ROUTE CAL_INT.value_changed TO CAL_TGT.set_rotation
