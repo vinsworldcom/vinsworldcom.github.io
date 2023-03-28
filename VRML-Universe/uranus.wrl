@@ -1,0 +1,219 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Uranus"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF URANUS_VP Viewpoint {
+    position 0 0 125
+    description "Uranus"
+}
+
+DEF URANUS_INTOSUN_VP Viewpoint {
+    position 25 0 -125
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Uranus"
+}
+
+DEF URANUS_TIMER TimeSensor {
+    cycleInterval 1.73
+    loop TRUE
+}
+
+DEF ARIEL_TIMER TimeSensor {
+    cycleInterval 3.5
+    loop TRUE
+}
+
+DEF UMBRIEL_TIMER TimeSensor {
+    cycleInterval 3.75
+    loop TRUE
+}
+
+DEF OBERON_TIMER TimeSensor {
+    cycleInterval 3.25
+    loop TRUE
+}
+
+DEF TITANIA_TIMER TimeSensor {
+    cycleInterval 3.45
+    loop TRUE
+}
+
+DEF URANUS_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF ARIEL_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF UMBRIEL_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF OBERON_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF TITANIA_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Moon PROTO
+PROTO Moon [
+    field SFColor MoonColor 0 0 0
+    field SFFloat MoonSize 1.0
+    field SFVec3f MoonLocation 1.0 1.0 1.0
+]
+{
+Transform {
+    translation IS MoonLocation
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor IS MoonColor
+                    emissiveColor IS MoonColor
+                }
+            }
+            geometry Sphere {
+                radius IS MoonSize
+            }
+        }
+    ]
+}
+}
+
+# Uranus
+Transform {
+    translation 0 0 0
+    rotation  1 0 0 -1.71
+    children [
+        DEF URANUS_TGT Transform {
+            children [
+                Shape {
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "https://vinsworldcom.github.io/VRML-Universe/uran_map.jpg"
+                        }
+                    }
+                    geometry Sphere {
+                        radius 16
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+# Ariel
+Transform {
+    rotation  1 0 0 -1.71
+    children [
+        DEF ARIEL_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation -30 10 0
+                    MoonColor 1 0.5 0.25
+                    MoonSize 0.373
+                }
+            ]
+        }
+    ]
+}
+
+# Umbriel
+Transform {
+    rotation  1 0 0 -1.71
+    children [
+        DEF UMBRIEL_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 30 -5 0
+                    MoonColor 1 0.5 0.25
+                    MoonSize 0.36
+                }
+            ]
+        }
+    ]
+}
+
+# Oberon
+Transform {
+    rotation  1 0 0 -1.71
+    children [
+        DEF OBERON_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 33 -2 -2
+                    MoonColor 0.8 0.8 0.8
+                    MoonSize 0.495
+                }
+            ]
+        }
+    ]
+}
+
+# Titania
+Transform {
+    rotation  1 0 0 -1.71
+    children [
+        DEF TITANIA_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation -35 3 4
+                    MoonColor 0.8 0.8 0.8
+                    MoonSize 0.5
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE URANUS_TIMER.fraction_changed TO URANUS_INT.set_fraction
+ROUTE URANUS_INT.value_changed TO URANUS_TGT.set_rotation
+
+ROUTE ARIEL_TIMER.fraction_changed TO ARIEL_INT.set_fraction
+ROUTE ARIEL_INT.value_changed TO ARIEL_TGT.set_rotation
+
+ROUTE UMBRIEL_TIMER.fraction_changed TO UMBRIEL_INT.set_fraction
+ROUTE UMBRIEL_INT.value_changed TO UMBRIEL_TGT.set_rotation
+
+ROUTE OBERON_TIMER.fraction_changed TO OBERON_INT.set_fraction
+ROUTE OBERON_INT.value_changed TO OBERON_TGT.set_rotation
+
+ROUTE TITANIA_TIMER.fraction_changed TO TITANIA_INT.set_fraction
+ROUTE TITANIA_INT.value_changed TO TITANIA_TGT.set_rotation

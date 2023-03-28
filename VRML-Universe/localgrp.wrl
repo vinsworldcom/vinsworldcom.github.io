@@ -1,0 +1,346 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+   title "UNI-VR-SE - Local Group"
+   info ["Copyright (C) VinsWorld.  All Rights Reserved."
+         "Created by Michael Vincent."]
+}
+
+Background {
+    backUrl   ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    bottomUrl ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    frontUrl  ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    leftUrl   ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    rightUrl  ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+    topUrl    ["https://vinsworldcom.github.io/VRML-Universe/spacebac.jpg"]
+}
+
+DEF LOCALGROUP_VP Viewpoint {
+    position    11.5 -8 40
+    description "Local Group"
+}
+DEF MILKYWAY_VP Viewpoint {
+    position    0 1 3
+    orientation 1 0 0 -0.2
+    description "Milky Way Galaxy"
+}
+DEF MAGELL_VP Viewpoint {
+    position    0 3 3
+    orientation -0.88 0.43 0.18 0.88
+    description "Large and Small Magellanic Clouds"
+}
+DEF BARNARD_VP Viewpoint {
+    position -7.05 -6.5 16.43
+    orientation 0 1 0 -0.5
+    description "Barnard's Galaxy"
+}
+DEF ANDROM_MILK_VP Viewpoint {
+    position    -1.4 0.9 0
+    orientation -0.15 -0.98 -0.15 1.59
+    description "Milky Way Galaxy with Andromeda Galaxy in background"
+}
+DEF PGC1305_VP Viewpoint {
+    position    7.78 -0.73 2.79
+    orientation -0.15 -0.98 -0.15 1.59
+    description "PGC 1305 with Andromeda Galaxy in background"
+}
+DEF ANDROMEDA_VP Viewpoint {
+    position    23.75 -10.71 10
+    orientation -0.89 -0.45 0.04 0.22 #1 0 0 -0.2
+    description "Andromeda Galaxy with Messier 32, 33 and 110 in background"
+}
+DEF MILK_ANDROM_VP Viewpoint {
+    position 26 -10.71 6.55
+    orientation 0.1 0.99 -0.1 1.58
+    description "Andromeda Galaxy with Milky Way Galaxy in background"
+}
+
+NavigationInfo {
+    avatarSize 0
+    type ["FLY", "EXAMINE"]
+    headlight FALSE
+}
+
+# DiskGalaxy PROTO
+PROTO DiskGalaxy [
+    field SFVec3f GalaxyScale 1.0 1.0 1.0
+]
+{
+Transform {
+    scale IS GalaxyScale
+    children [
+        #Galactic Core
+        Shape {
+            appearance Appearance {
+                material Material {
+                    emissiveColor 0.4 0.4 0.4
+                }
+            }
+            geometry Sphere {
+                radius 0.125
+            }
+        }
+        #Galactic Disc
+        Transform {
+            scale 1 0.025 1
+            children [
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 0.3 0.3 0.3
+                            transparency 0.05
+                        }
+                     }
+                     geometry Sphere {
+                         radius 0.5
+                     }
+                }
+            ]
+        }
+    ]
+}
+}
+
+#Milky Way Galaxy
+DEF MILKYWAY_TGT Transform {
+    children [
+        Anchor {
+#            url "milkyway.html"
+            description "Milky Way Galaxy"
+#            parameter ["target=_blank"]
+            children [
+                DiskGalaxy {
+                    GalaxyScale 1 1 1
+                }
+            ]
+        }
+
+        #Solar System
+        Anchor {
+            url "https://vinsworldcom.github.io/VRML-Universe/solarsys.wrl"
+            description "Solar System"
+            children [
+
+                #Arrow (point)
+                Transform {
+                    translation -0.28 0.1002 0
+                    rotation 1 0 0 3.14
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    emissiveColor 1 0 0
+                                }
+                            }
+                            geometry Cone {
+                                bottomRadius 0.05
+                                height 0.2
+                            }
+                        }
+                    ]
+                }
+                #Arrow (shaft)
+                Transform {
+                    translation -0.28 0.3502 0
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    emissiveColor 1 0 0
+                                }
+                            }
+                            geometry Cylinder {
+                                radius 0.01
+                                height 0.5
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#Large Megallanic Cloud
+Transform {
+    translation  -1.39 -0.93 -0.93
+    children [
+        DEF LMAG_TGT Transform {
+            children [
+                Anchor {
+#                    url "magell.html"
+                    description "Large Megallanic Cloud"
+#                    parameter ["target=_blank"]
+                    children [
+                        #Irregular Galaxy
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    emissiveColor 0.5 0.5 0.5
+                                    transparency 0.7
+                                }
+                            }
+                            geometry Sphere {
+                                radius 0.1315
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#Small Megallanic Cloud
+Transform {
+    translation  -1.39 -1.39 -0.46
+    children [
+        DEF SMAG_TGT Transform {
+            children [
+                Anchor {
+#                    url "magell.html"
+                    description "Small Megallanic Cloud"
+#                    parameter ["target=_blank"]
+                    children [
+                        #Irregular Galaxy
+                        Shape {
+                            appearance Appearance {
+                                material Material {
+                                    emissiveColor 0.5 0.5 0.5
+                                    transparency 0.7
+                                }
+                            }
+                            geometry Sphere {
+                                radius 0.077
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+#Barnard's Galaxy
+DEF BARNTGT Transform {
+    translation -6.05 -6.98 14.43
+    children [
+        Anchor {
+#            url "barnard.html"
+            description "Barnard's Galaxy - PGC 63616"
+#            parameter ["target=_blank"]
+            children [
+                #Irregular Galaxy
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 0.7 0.7 0.7
+                            transparency 0.5
+                        }
+                    }
+                    geometry Sphere {
+                        radius 0.0233
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+#Galaxy PGC 1305
+DEF PGC1305TGT Transform {
+    translation 8.38 -0.93 2.79
+    rotation 1 0 0 -1.57
+    children [
+        Anchor {
+#            url "pgc1305.html"
+            description "PGC 1305"
+#            parameter ["target=_blank"]
+            children [
+                #Irregular Galaxy
+                Shape {
+                    appearance Appearance {
+                        material Material {
+                            emissiveColor 0.9 0.9 0.9
+                            transparency 0.3
+                        }
+                    }
+                    geometry Sphere {
+                        radius 0.0053
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+#Andromeda Galaxy
+DEF ANDROMEDA_TGT Transform {
+    translation 23.75 -10.71 6.05
+    rotation 0.68 0.68 0.28 1.1
+    children [
+        Anchor {
+#            url "andromeda.html"
+            description "Andromeda Galaxy - Messier 31"
+#            parameter ["target=_blank"]
+            children [
+                DiskGalaxy {
+                    GalaxyScale 1.5 1.5 1.5
+                }
+            ]
+        }
+    ]
+}
+
+#Messier 33 Galaxy
+DEF M33_TGT Transform {
+    translation 25.14 -15.36 0
+    rotation 1 0 0 -0.6
+    children [
+        Anchor {
+#            url "messier33.html"
+            description "Triangulum Galaxy - Messier 33"
+#            parameter ["target=_blank"]
+            children [
+                DiskGalaxy {
+                    GalaxyScale 0.6 0.6 0.6
+                }
+            ]
+        }
+    ]
+}
+
+#Messier 110 Galaxy
+DEF M110_TGT Transform {
+    translation  25.61 -11.17 6.51
+    rotation 1 0 0 0.2
+    children [
+        Anchor {
+#            url "messier110.html"
+            description "Messier 110"
+#            parameter ["target=_blank"]
+            children [
+                DiskGalaxy {
+                    GalaxyScale 0.054 0.054 0.054
+                }
+            ]
+        }
+    ]
+}
+
+#Messier 32 Galaxy
+DEF M32TGT Transform {
+    translation  24.68 -11.17 6.05
+    children [
+        Anchor {
+#            url "messier32.html"
+            description "Messier 32"
+#            parameter ["target=_blank"]
+            children [
+                DiskGalaxy {
+                    GalaxyScale 0.0426 0.0426 0.0426
+                }
+            ]
+        }
+    ]
+}

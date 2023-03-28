@@ -1,0 +1,152 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Pluto"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF PLUTO_VP Viewpoint {
+    position 0 0 30
+    description "Pluto"
+}
+
+DEF PLUTO_INTOSUN_VP Viewpoint {
+    position 0 0 -30
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Pluto"
+}
+
+DEF PLUTO_TIMER TimeSensor {
+    cycleInterval 15.3
+    loop TRUE
+}
+
+DEF NIX_TIMER TimeSensor {
+    cycleInterval 9
+    loop TRUE
+}
+
+DEF HYDRA_TIMER TimeSensor {
+    cycleInterval 8
+    loop TRUE
+}
+
+DEF PLUTO_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF NIX_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+DEF HYDRA_INT OrientationInterpolator {
+    key [0, 0.25, 0.5, 0.75, 1]
+    keyValue [ 0 1 0 0, 
+               0 1 0 1.57,
+               0 1 0 3.14,
+               0 1 0 4.71,
+               0 1 0 6.28
+    ]
+}
+
+# Moon PROTO
+PROTO Moon [
+    field SFColor MoonColor 0 0 0
+    field SFFloat MoonSize 1.0
+    field SFVec3f MoonLocation 1.0 1.0 1.0
+]
+{
+Transform {
+    translation IS MoonLocation
+    children [
+        Shape {
+            appearance Appearance {
+                material Material {
+                    diffuseColor IS MoonColor
+                    emissiveColor IS MoonColor
+                }
+            }
+            geometry Sphere {
+                radius IS MoonSize
+            }
+        }
+    ]
+}
+}
+
+# Pluto
+Transform {
+    rotation  1 0 0 0.2
+    children [
+        DEF PLUTO_TGT Transform {
+            children [
+
+                # Pluto
+                Moon {
+                    MoonLocation 0 0 -2
+                    MoonColor 0.5 0.5 0.5
+                    MoonSize 0.71
+                }
+
+                # Charon
+                Moon {
+                    MoonLocation 0 0 10
+                    MoonColor 0.3 0.3 0.1
+                    MoonSize 0.37
+                }
+            ]
+        }
+    ]
+}
+
+# Nix
+Transform {
+    children [
+        DEF NIX_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 0 1 17
+                    MoonColor 0.5 0.3 0.2
+                    MoonSize 0.03
+                }
+            ]
+        }
+    ]
+}
+
+# Hydra
+Transform {
+    children [
+        DEF HYDRA_TGT Transform {
+            children [
+                Moon {
+                    MoonLocation 18 -1 0
+                    MoonColor 0.3 0.3 0.1
+                    MoonSize 0.07
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE PLUTO_TIMER.fraction_changed TO PLUTO_INT.set_fraction
+ROUTE PLUTO_INT.value_changed TO PLUTO_TGT.set_rotation
+
+ROUTE NIX_TIMER.fraction_changed TO NIX_INT.set_fraction
+ROUTE NIX_INT.value_changed TO NIX_TGT.set_rotation
+
+ROUTE HYDRA_TIMER.fraction_changed TO HYDRA_INT.set_fraction
+ROUTE HYDRA_INT.value_changed TO HYDRA_TGT.set_rotation

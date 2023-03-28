@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+    <channel>
+        <title>Vin's World Podcast</title>
+        <link>http://www.vinsworld.com</link>
+        <language>en-us</language>
+        <atom:link href="https://vinsworldcom.github.io/podcasts/feed.xml" rel="self" type="application/rss+xml" />
+        <copyright>Michael J. Vincent</copyright>
+        <itunes:subtitle>The PodCast</itunes:subtitle>
+        <itunes:author>Michael J. Vincent</itunes:author>
+        <itunes:summary>
+            Discussions.
+        </itunes:summary>
+        <description>
+            Discussions.
+        </description>
+        <itunes:keywords>sounds</itunes:keywords>
+        <itunes:owner>
+            <itunes:name>Michael J. Vincent</itunes:name>
+            <itunes:email>vin@vinsworld.com</itunes:email>
+        </itunes:owner>
+        <itunes:image href="https://vinsworldcom.github.io/podcasts/logo.png" />
+        <itunes:category text="Education">
+            <itunes:category text="Self-Improvement" />
+        </itunes:category>
+        <itunes:category text="Health &amp; Fitness">
+            <itunes:category text="Mental Health" />
+        </itunes:category>
+        <itunes:explicit>no</itunes:explicit>
+        <item>
+            <link>http://www.vinsworld.com</link>
+            <itunes:author>Michael J. Vincent</itunes:author>
+            <title>EMANE Explained</title>
+            <itunes:subtitle>with help from NotebookLM and emane.io</itunes:subtitle>
+            <itunes:summary> <![CDATA[ A quick introduction to emulation, its importance in wireless network modeling, and EMANE - the tool to do it with. ]]> </itunes:summary>
+            <description> <![CDATA[ A quick introduction to emulation, its importance in wireless network modeling, and EMANE - the tool to do it with. ]]> </description>
+            <itunes:season>1</itunes:season>
+            <itunes:episode>2</itunes:episode>
+            <itunes:episodeType>full</itunes:episodeType>
+            <enclosure
+                url="https://vinsworldcom.github.io/podcasts/content/episode-20250822-emane.mp3"
+                length="3271741" type="audio/mpeg" />
+            <itunes:duration>215.0</itunes:duration>
+            <guid isPermaLink="false">
+                https://vinsworldcom.github.io/podcasts/content/episode-20250822-emane.mp3</guid>
+            <pubDate>Fri Aug 22 20:00:00 2025</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+        <item>
+            <link>http://www.vinsworld.com</link>
+            <itunes:author>Michael J. Vincent</itunes:author>
+            <title>Episode 1</title>
+            <itunes:subtitle>The First Podcast</itunes:subtitle>
+            <itunes:summary> <![CDATA[ Discussions. ]]> </itunes:summary>
+            <description> <![CDATA[ Discussions. ]]> </description>
+            <itunes:season>1</itunes:season>
+            <itunes:episode>1</itunes:episode>
+            <itunes:episodeType>full</itunes:episodeType>
+            <enclosure
+                url="https://vinsworldcom.github.io/podcasts/content/episode-20250822.m4a"
+                length="15071" type="audio/mpeg" />
+            <itunes:duration>2.0</itunes:duration>
+            <guid isPermaLink="false">
+                https://vinsworldcom.github.io/podcasts/content/episode-20250822.m4a</guid>
+            <pubDate>Thu Aug 21 12:00:00 2025</pubDate>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+    </channel>
+</rss>

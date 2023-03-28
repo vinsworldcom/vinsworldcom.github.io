@@ -1,0 +1,101 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+    title "UNI-VR-SE - Earth"
+    info ["Copyright (C) VinsWorld.  All Rights Reserved."
+          "Created by Michael Vincent."]
+}
+
+DEF EARTH_VP Viewpoint {
+    position 0 0 55
+    description "Earth"
+}
+
+DEF EARTH_INTOSUN_VP Viewpoint {
+    position 0 0 -55
+    orientation 0 1 0 3.14
+    description "Towards Sun from behind Earth"
+}
+
+DEF EARTH_TIMER TimeSensor {
+    cycleInterval 2.4
+    loop TRUE
+}
+DEF MOON_TIMER TimeSensor {
+    cycleInterval 69
+    loop TRUE
+}
+
+#EARTH
+Transform {
+    rotation 1 0 0 -0.30
+    translation 0 0 0
+    children [
+        DEF EARTH_INT OrientationInterpolator {
+            key [0, 0.25, 0.5, 0.75, 1]
+            keyValue [ 0 1 0 0, 
+                       0 1 0 1.57,
+                       0 1 0 3.14,
+                       0 1 0 4.71,
+                       0 1 0 6.28
+            ]
+        }
+
+        DEF EARTH_TGT Transform {
+            children [
+                Shape {
+                    appearance Appearance {
+                        texture ImageTexture {
+                            url "https://vinsworldcom.github.io/VRML-Universe/ear_map.jpg"
+                        }
+                    }
+                    geometry Sphere {
+                        radius 3.96
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+#MOON
+Transform {
+    children [
+        DEF MOON_INT OrientationInterpolator {
+            key [0, 0.25, 0.5, 0.75, 1]
+            keyValue [ 0 1 0 0, 
+                       0 1 0 1.57,
+                       0 1 0 3.14,
+                       0 1 0 4.71,
+                       0 1 0 6.28
+            ]
+        }
+
+        DEF MOON_TGT Transform {
+            children [
+                Transform {
+                    translation 30 0 0
+                    rotation  0 1 0 1.57
+                    children [
+                        Shape {
+                            appearance Appearance {
+                                texture ImageTexture {
+                                    url "https://vinsworldcom.github.io/VRML-Universe/moon.jpg"
+                                }
+                            }
+                            geometry Sphere {
+                                radius 1.08
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+ROUTE EARTH_TIMER.fraction_changed TO EARTH_INT.set_fraction
+ROUTE EARTH_INT.value_changed TO EARTH_TGT.set_rotation
+
+ROUTE MOON_TIMER.fraction_changed TO MOON_INT.set_fraction
+ROUTE MOON_INT.value_changed TO MOON_TGT.rotation

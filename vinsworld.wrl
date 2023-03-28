@@ -1,0 +1,627 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+	title "VinsWorld VRML"
+	info ["Copyright (C) VinsWorld.  All Rights Reserved."
+		  "Created by Michael Vincent."]
+}
+
+DEF ENTRY_VP Viewpoint {
+	position 12.75 0 30
+	description "Entry"
+}
+
+NavigationInfo {
+	avatarSize 0
+	headlight FALSE
+}
+
+DEF WORLD_TIMER TimeSensor {
+	cycleInterval 30
+	loop TRUE
+}
+
+DEF TEXT_TIMER TimeSensor {
+	cycleInterval 5
+	loop TRUE
+}
+
+# World Rotate
+DEF WORLD_INT OrientationInterpolator {
+	key [0, 0.25, 0.5, 0.75, 1]
+	keyValue [ 0 1 0 0, 
+		0 1 0 1.57,
+		0 1 0 3.14,
+		0 1 0 4.71,
+		0 1 0 6.28
+	]
+}
+
+# World
+Transform {
+  translation -1 0 3
+	rotation 0 0 1 -0.30
+	children [
+		DEF WORLD_TGT Transform {
+			children [
+				Shape {
+					appearance Appearance {
+            texture ImageTexture {
+              url "VRML-Universe/ear_map.jpg"
+            }
+					}
+					geometry Sphere {
+						radius 8
+					}
+				}
+			]
+		}
+	]
+}
+
+DEF TEXT Transform {
+	children [
+
+    # Text Color
+    DEF TEXT_TGT DirectionalLight {
+      ambientIntensity 0.75
+    }
+    DEF TEXT_INT ScalarInterpolator {
+      key [0, 0.25, 0.5, 0.75, 1]
+      keyValue [ 0, 0.25, 0.5, 0.25, 0 ]
+    }
+
+    # V
+    Transform {
+      translation 0 -3 11
+      rotation 0 0 1 0.5
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 3
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 1.2 -3 11
+      rotation 0 0 1 -0.5
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 3
+          }
+        }
+      ]
+    }
+
+    # I
+    Transform {
+      translation 3 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+
+    # N
+    Transform {
+      translation 4 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 5 -3 11
+      rotation 0 0 1 0.5
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 6 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+
+    # '
+    Transform {
+      translation 7 -2 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 0.75
+          }
+        }
+      ]
+    }
+
+    # S
+    Transform {
+      translation 9 -1.85 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.5
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 7.8 -2.5 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 8.75 -3 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.5
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 9.7 -3.625 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 8.5 -4.2 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.5
+          }
+        }
+      ]
+    }
+
+    # W
+    Transform {
+      translation 13 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 14.25 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 15.5 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 14 -4.2 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.75
+          }
+        }
+      ]
+    }
+
+    # O
+    Transform {
+      translation 17.75 -1.8 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.25
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 16.5 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 18.5 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 17.25 -4.2 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.25
+          }
+        }
+      ]
+    }
+
+    # R
+    Transform {
+      translation 19.5 -3.7 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 21 -1.85 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.75
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 22.05 -2.5 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.4
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 20.75 -3 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.75
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 21.5 -3.7 11
+      rotation 0 0 1 0.5
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.5
+          }
+        }
+      ]
+    }
+
+    # L
+    Transform {
+      translation 23 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 23.75 -4.2 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.25
+          }
+        }
+      ]
+    }
+
+    # D
+    Transform {
+      translation 27.25 -1.8 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.25
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 26 -3.55 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 1.75
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 28.25 -3 11
+      rotation 0 0 1 -0.2
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.85
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 27 -4.2 11
+      rotation 0 0 1 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.25
+            height 2.25
+          }
+        }
+      ]
+    }
+	]
+}
+
+ROUTE WORLD_TIMER.fraction_changed TO WORLD_INT.set_fraction
+ROUTE WORLD_INT.value_changed TO WORLD_TGT.set_rotation
+
+ROUTE TEXT_TIMER.fraction_changed TO TEXT_INT.set_fraction
+ROUTE TEXT_INT.value_changed TO TEXT_TGT.set_intensity

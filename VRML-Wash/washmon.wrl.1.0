@@ -1,0 +1,29 @@
+#VRML V1.0 ascii
+Separator {
+	Info {
+		string "Created by Michael Vincent.  Copyright (C) VinsWorld.  All Rights Reserved."
+   	}
+
+	Separator {
+		Material { diffuseColor 1 1 1 }
+		Coordinate3 {
+			point [
+				-2 0 -2, 2 0 -2, 2 0 2, -2 0 2,
+				-1 20 -1, 1 20 -1, 1 20 1, -1 20 1,
+				0 24 0
+			]
+		}
+		IndexedFaceSet {
+			coordIndex [
+				0, 4, 7, 3, -1,
+				1, 5, 4, 0, -1,
+				2, 6, 5, 1, -1,
+				3, 7, 6, 2, -1,
+				4, 8, 7, -1,
+				5, 8, 4, -1,
+				6, 8, 5, -1,
+				7, 8, 6, -1
+			]
+		}
+	}
+}

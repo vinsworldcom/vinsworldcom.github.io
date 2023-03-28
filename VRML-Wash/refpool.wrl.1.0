@@ -1,0 +1,21 @@
+#VRML V1.0 ascii
+Separator {
+	Info {
+		string "Created by Michael Vincent.  Copyright (C) VinsWorld.  All Rights Reserved."
+   	}
+	Separator {
+		Material { diffuseColor 0 0 1 }
+		Cube { width 100 height 0.01 depth 4 }
+		    #Border
+		Material { diffuseColor 1 1 1 }
+		Translation { translation 0 -0.01 -2.25 }
+		Cube { width 101 height 0.5 depth 0.5 }
+		Translation { translation 0 0 4.5 }
+		Cube { width 101 height 0.5 depth 0.5 }
+		Translation { translation -50.25 0 -2.25 }
+		Cube { width 0.5 height 0.5 depth 5 }
+		Translation { translation 100.5 0 0 }
+		Cube { width 0.5 height 0.5 depth 5 }
+
+	}
+}
